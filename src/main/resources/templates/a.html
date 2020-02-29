@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+</script>
+</head>
+<body>
+templates/a.html
+<div th:text="${a}"></div>
+<div>[[${a}]]</div>
+<div th:text="${hello}"></div>
+<div th:utext="${hello}"></div>
+<br>
+<span th:each="user:${users}" th:text="${user}"></span>
+<br>
+<h1 th:each="user:${users}">[[${user}]]</h1>
+<h1 th:each="user:${users}" th:text="${user}"></h1>
+</body>
+</html>

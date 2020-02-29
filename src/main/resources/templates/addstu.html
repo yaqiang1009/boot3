@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/stu}" method="post">
+	姓名：<input type="text" name="sname"/>
+	性别：<input type="text" name="sex"/>
+	班级：<select name="scClass.scid">
+		<option th:each="sc:${scs}" th:value="${sc.scid}">[[${sc.scname}]]</option>
+	</select>
+	<input type="submit" value="提交"/>
+</form>
+</body>
+</html>

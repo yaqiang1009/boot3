@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.js}"></script>
+<link rel="stylesheet" th:href="@{/css/mystl.css}">
+<style type="text/css">
+
+table{
+border:0px;
+margin: auto;
+padding: 0px;
+border-spacing: 0px;
+}
+td{
+margin:0px;
+border:1px solid black;
+width:100px;
+}
+</style>
+<script type="text/javascript">
+
+$(function(){
+  	$(".deletestu").click(function(){
+		 $("#delform").attr("action",$(this).attr("url")).submit(); 
+		 
+	});  
+});
+</script>
+</head>
+<body>
+index--[[${session.user}]]<br>
+<table>
+	<tr>
+		<td>姓名</td>
+		<td>性别</td>
+		<td>班级</td>
+		<td>操作</td>
+	</tr>
+	<tr th:each="s:${stus}">
+		<td>[[${s.sname}]]</td>
+		<td>[[${s.sex}]]</td>
+		<td>[[${s.scClass.scname}]]</td>
+		<td><a th:href="@{/sestu/}+${s.sid}">编辑</a>
+			<a th:attr="url=@{/stu/}+${s.sid}" class="deletestu" href="#">删除</a>
+		</td>
+	</tr>
+</table>
+<a th:href="@{/scclass}">新增学生</a>
+<!-- 删除学生 -->
+<form id="delform" method="post">
+	<input type="hidden" name="_method" value="delete"/>
+</form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form th:action="@{/login}" method="post">
+<span th:text="${mes}" th:if="${not #strings.isEmpty(mes)}"></span>
+user:<input type="text" name="user"/>
+pass:<input type="text" name="password"/>
+<input type="submit" value="登录"/>
+</form>
+</body>
+</html>
